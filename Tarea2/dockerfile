@@ -1,0 +1,11 @@
+FROM golang:1.18
+
+WORKDIR /tarea2
+
+COPY . .
+
+RUN go mod download
+
+EXPOSE 3000
+
+CMD ["go", "run", "main.go"]
