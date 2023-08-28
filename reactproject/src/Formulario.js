@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const Formulario = () => {
   const [valores, setValores] = useState({
-    titulo: '',
+    album: '',
     artista: '',
-    fecha: '',
+    año: '',
     genero: '',
   });
 
@@ -44,11 +44,11 @@ const Formulario = () => {
       <h2>Formulario de 4 Valores</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          titulo:
+          album:
           <input
             type="text"
-            name="titulo"
-            value={valores.titulo}
+            name="album"
+            value={valores.album}
             onChange={handleInputChange}
           />
         </label>
@@ -67,8 +67,8 @@ const Formulario = () => {
           Lanzamiento:
           <input
             type="text"
-            name="fecha"
-            value={valores.fecha}
+            name="año"
+            value={valores.año}
             onChange={handleInputChange}
           />
         </label>
