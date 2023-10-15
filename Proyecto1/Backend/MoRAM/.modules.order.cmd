@@ -1,0 +1,1 @@
+cmd_/home/brayan/Escritorio/Laboratorio_SOPES/SO1_2S2023_201801369/Proyecto1/Backend/MoRAM/modules.order := {   echo /home/brayan/Escritorio/Laboratorio_SOPES/SO1_2S2023_201801369/Proyecto1/Backend/MoRAM/ram.ko; :; } | awk '!x[$$0]++' - > /home/brayan/Escritorio/Laboratorio_SOPES/SO1_2S2023_201801369/Proyecto1/Backend/MoRAM/modules.order

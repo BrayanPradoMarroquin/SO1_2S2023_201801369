@@ -80,13 +80,13 @@ static struct proc_ops data = {
 
 static int __init add_module(void) {
     proc_create(name, 0, NULL, &data);
-    printk(KERN_INFO "Elian Saúl Estrada Urbina\n");
+    printk(KERN_INFO "Brayan Hamllelo Estevem Prado Marroquin\n");
     return 0;
 }
 
 static void __exit remove_module(void) {
     remove_proc_entry(name, NULL);
-    printk(KERN_INFO "Segundo Semestre 2022\n");
+    printk(KERN_INFO "Segundo Semestre 2023\n");
 }
 
 module_init(add_module);
