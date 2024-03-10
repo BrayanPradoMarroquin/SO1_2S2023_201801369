@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  database:
+    image: 'Proyecto1SO1'
+    container_name: database
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'bhepm'
+    volumes:
+      - BasePS01:/var/lib/mysql
+    ports:
+      - "33061:3306"
+    
+  monitor:
+    image: brayanprado09/monitorp1_2s2023
+    container_name: monitor
+    restart: always
+    depends_on:
+      - database
+
+  servidor:
+    image: brayanprado09/servidorp1_2s2023
+    container_name: server
+    restart: always
+    ports:
+      - "4000:4000"
+    depends_on:
+      - database
+
+  frontend:
+    image: brayanprado09/clientep1_2s2023
+    container_name: cliente
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - servidor
+
+volumes:
+  BasePS01:

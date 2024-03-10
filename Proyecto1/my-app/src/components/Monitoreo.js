@@ -2,8 +2,23 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 import contCPU from './Graph/CPU'
 import contRAM from './Graph/RAM'
+import axios from 'axios';
+import { useEffect, useState } from 'react'
 
 const Monitoreo = () => {
+  const [data, setData] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/cpu')
+        .then(respuesta => {
+            setData(respuesta.data.data.process)
+        })
+        .catch(error => {
+            console.log(error)
+        });
+    }, []);
+
+
   return (
     <div>
       <center><h1>Monitoreo</h1></center>
@@ -50,16 +65,17 @@ const Monitoreo = () => {
           <Table striped bordered hover variant="dark">
             <thead>
               <tr>
+                <th><center>PID</center></th>
                 <th><center>Procesos</center></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><center>1</center></td>
-              </tr>
-              <tr>
-                <td><center>1</center></td>
-              </tr>
+              {data.map(item => (
+                        <tr key={item.pid}>
+                            <td>{item.pid}</td>
+                            <td>{item.name}</td>
+                        </tr>
+              ))}
             </tbody>
           </Table>
         </center>
